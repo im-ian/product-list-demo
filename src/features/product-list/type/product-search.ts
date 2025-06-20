@@ -5,3 +5,5 @@ export interface SearchFilters {
   inStock?: boolean;
   category?: string;
 }
+
+export type ProductCategoryResponse = { data: string[] };
