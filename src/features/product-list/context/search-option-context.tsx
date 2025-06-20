@@ -23,7 +23,10 @@ export const getIsActiveSearchOption = (searchOptions: SearchFilters) => {
 
   if (!useFilter) return false;
 
-  return !shallowEqual(options, DEFAULT_SEARCH_FILTERS);
+  const { useFilter: defaultUseFilter, ...defaultOptions } =
+    DEFAULT_SEARCH_FILTERS;
+
+  return !shallowEqual(options, defaultOptions);
 };
 
 function searchOptionReducer(
