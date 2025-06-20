@@ -5,7 +5,7 @@
     "price": 2499000,
     "description": "Apple M3 Pro 칩 탑재, 14인치 Liquid Retina XDR 디스플레이",
     "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
-    "category": "노트북",
+    "category": ["노트북", "해외배송"],
     "inStock": true
   },
   {
@@ -15,7 +15,7 @@
     "discountedPrice": 1450000,
     "description": "A17 Pro 칩, 48MP 메인 카메라, 티타늄 디자인",
     "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
-    "category": "스마트폰",
+    "category": ["스마트폰", "해외배송"],
     "inStock": true
   },
   {
@@ -25,7 +25,7 @@
     "discountedPrice": 299000,
     "description": "액티브 노이즈 캔슬링, 공간 음향, USB-C 충전",
     "imageUrl": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
-    "category": "이어폰",
+    "category": ["이어폰"],
     "inStock": false
   },
   {
@@ -34,7 +34,7 @@
     "price": 899000,
     "description": "M2 칩, 10.9인치 Liquid Retina 디스플레이",
     "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
-    "category": "태블릿",
+    "category": ["태블릿", "해외배송"],
     "inStock": true
   },
   {
@@ -44,7 +44,7 @@
     "discountedPrice": 549000,
     "description": "S9 칩, 더블 탭 제스처, 항상 켜진 Retina 디스플레이",
     "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
-    "category": "웨어러블",
+    "category": ["웨어러블", "해외배송"],
     "inStock": true
   },
   {
@@ -54,7 +54,7 @@
     "discountedPrice": 1490000,
     "description": "M2 칩, 13.6인치 Liquid Retina 디스플레이, 최대 18시간 배터리",
     "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
-    "category": "노트북",
+    "category": ["노트북", "해외배송"],
     "inStock": true
   },
   {
@@ -64,7 +64,7 @@
     "discountedPrice": 1150000,
     "description": "A16 Bionic 칩, 48MP 메인 카메라, Dynamic Island",
     "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
-    "category": "스마트폰",
+    "category": ["스마트폰", "해외배송"],
     "inStock": true
   },
   {
@@ -74,7 +74,7 @@
     "discountedPrice": 199000,
     "description": "공간 음향, 적응형 EQ, 방수 및 땀 방지",
     "imageUrl": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
-    "category": "이어폰",
+    "category": ["이어폰"],
     "inStock": true
   },
   {
@@ -84,7 +84,7 @@
     "discountedPrice": 1799000,
     "description": "M2 칩, 12.9인치 Liquid Retina XDR 디스플레이, ProMotion",
     "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
-    "category": "태블릿",
+    "category": ["태블릿", "해외배송"],
     "inStock": false
   },
   {
@@ -93,7 +93,7 @@
     "price": 399000,
     "description": "S8 칩, 항상 켜진 Retina 디스플레이, 심전도 앱",
     "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
-    "category": "웨어러블",
+    "category": ["웨어러블"],
     "inStock": true
   },
   {
@@ -103,7 +103,7 @@
     "discountedPrice": 1799000,
     "description": "M3 칩, 24인치 4.5K Retina 디스플레이, 7가지 색상",
     "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
-    "category": "데스크톱",
+    "category": ["데스크톱", "해외배송"],
     "inStock": true
   },
   {
@@ -113,7 +113,7 @@
     "discountedPrice": 1350000,
     "description": "A16 Bionic 칩, 48MP 메인 카메라, Dynamic Island",
     "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
-    "category": "스마트폰",
+    "category": ["스마트폰", "해외배송"],
     "inStock": false
   },
   {
@@ -123,7 +123,7 @@
     "discountedPrice": 699000,
     "description": "액티브 노이즈 캔슬링, 공간 음향, 20시간 배터리",
     "imageUrl": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
-    "category": "이어폰",
+    "category": ["이어폰", "해외배송"],
     "inStock": true
   },
   {
@@ -133,7 +133,7 @@
     "discountedPrice": 649000,
     "description": "A15 Bionic 칩, 8.3인치 Liquid Retina 디스플레이",
     "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
-    "category": "태블릿",
+    "category": ["태블릿"],
     "inStock": true
   },
   {
@@ -142,7 +142,7 @@
     "price": 1299000,
     "description": "S8 칩, 49mm 티타늄 케이스, 액션 버튼",
     "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
-    "category": "웨어러블",
+    "category": ["웨어러블", "해외배송"],
     "inStock": true
   },
   {
@@ -152,7 +152,7 @@
     "discountedPrice": 2799000,
     "description": "M2 Ultra 칩, 최대 192GB 통합 메모리, 전문가용",
     "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
-    "category": "데스크톱",
+    "category": ["데스크톱", "해외배송"],
     "inStock": false
   },
   {
@@ -162,7 +162,7 @@
     "discountedPrice": 1050000,
     "description": "A15 Bionic 칩, 12MP 듀얼 카메라, 6.1인치 디스플레이",
     "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
-    "category": "스마트폰",
+    "category": ["스마트폰"],
     "inStock": true
   },
   {
@@ -172,7 +172,7 @@
     "discountedPrice": 399000,
     "description": "액티브 노이즈 캔슬링, 공간 음향, 40시간 배터리",
     "imageUrl": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
-    "category": "이어폰",
+    "category": ["이어폰", "해외배송"],
     "inStock": true
   },
   {
@@ -182,7 +182,7 @@
     "discountedPrice": 549000,
     "description": "A14 Bionic 칩, 10.9인치 Liquid Retina 디스플레이",
     "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
-    "category": "태블릿",
+    "category": ["태블릿"],
     "inStock": true
   },
   {
@@ -192,7 +192,7 @@
     "discountedPrice": 499000,
     "description": "S8 칩, 심전도 앱, 온도 센서",
     "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
-    "category": "웨어러블",
+    "category": ["웨어러블"],
     "inStock": false
   },
   {
@@ -202,7 +202,7 @@
     "discountedPrice": 849000,
     "description": "M2 칩, 컴팩트한 디자인, 다양한 연결 옵션",
     "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
-    "category": "데스크톱",
+    "category": ["데스크톱", "해외배송"],
     "inStock": true
   },
   {
@@ -212,7 +212,7 @@
     "discountedPrice": 850000,
     "description": "A15 Bionic 칩, 12MP 듀얼 카메라, 6.1인치 디스플레이",
     "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
-    "category": "스마트폰",
+    "category": ["스마트폰"],
     "inStock": true
   },
   {
@@ -222,7 +222,7 @@
     "discountedPrice": 249000,
     "description": "액티브 노이즈 캔슬링, 공간 음향, 운동용 디자인",
     "imageUrl": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
-    "category": "이어폰",
+    "category": ["이어폰"],
     "inStock": true
   },
   {
@@ -232,7 +232,7 @@
     "discountedPrice": 399000,
     "description": "A13 Bionic 칩, 10.2인치 Retina 디스플레이",
     "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
-    "category": "태블릿",
+    "category": ["태블릿"],
     "inStock": false
   },
   {
@@ -242,7 +242,7 @@
     "discountedPrice": 449000,
     "description": "S7 칩, 항상 켜진 Retina 디스플레이, 빠른 충전",
     "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
-    "category": "웨어러블",
+    "category": ["웨어러블"],
     "inStock": true
   },
   {
@@ -252,7 +252,7 @@
     "discountedPrice": 8499000,
     "description": "M2 Ultra 칩, 모듈형 디자인, 전문가용 워크스테이션",
     "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
-    "category": "데스크톱",
+    "category": ["데스크톱", "해외배송"],
     "inStock": true
   },
   {
@@ -262,7 +262,7 @@
     "discountedPrice": 750000,
     "description": "A14 Bionic 칩, 12MP 듀얼 카메라, 6.1인치 디스플레이",
     "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
-    "category": "스마트폰",
+    "category": ["스마트폰"],
     "inStock": false
   },
   {
@@ -272,7 +272,7 @@
     "discountedPrice": 199000,
     "description": "무선 헤드폰, 40시간 배터리, Apple W1 칩",
     "imageUrl": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
-    "category": "이어폰",
+    "category": ["이어폰"],
     "inStock": true
   },
   {
@@ -282,7 +282,7 @@
     "discountedPrice": 349000,
     "description": "A12 Bionic 칩, 10.2인치 Retina 디스플레이",
     "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
-    "category": "태블릿",
+    "category": ["태블릿"],
     "inStock": true
   },
   {
@@ -292,7 +292,7 @@
     "discountedPrice": 399000,
     "description": "S6 칩, 심전도 앱, 항상 켜진 Retina 디스플레이",
     "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
-    "category": "웨어러블",
+    "category": ["웨어러블"],
     "inStock": false
   }
 ]

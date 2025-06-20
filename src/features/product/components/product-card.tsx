@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import type { Product } from "../types/product";
 import { formatPrice, getDiscountRate } from "../utils/price";
+import { ProductBadge } from "./product-badge";
 
 interface ProductCardProps {
   product: Product;
@@ -34,12 +35,12 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
       </div>
       <CardContent className="space-y-2">
-        <div className="flex items-start justify-between gap-2">
-          <h3 className="font-semibold text-xl line-clamp-2">{product.name}</h3>
-          <Badge variant="outline" className="text-xs shrink-0">
-            {product.category}
-          </Badge>
+        <div className="flex items-start gap-2">
+          {product.category.map((category) => (
+            <ProductBadge key={category} category={category} />
+          ))}
         </div>
+        <h3 className="font-semibold text-xl line-clamp-2">{product.name}</h3>
         <p className="text-xs text-muted-foreground line-clamp-2">
           {product.description}
         </p>
