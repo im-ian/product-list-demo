@@ -1,10 +1,8 @@
 "use client";
 
-import { NullSymbol, NullSymbolType } from "@/types/common";
-import React, { createContext, useReducer, useCallback } from "react";
-import { useProductCategories } from "../hooks/use-product-categories";
+import { createContext, useReducer, useCallback } from "react";
 import { SearchFilters } from "../type/product-search";
-
+import { useProductCategories } from "../hooks/use-product-categories";
 interface SearchOptionState {
   filters: SearchFilters;
   categories: string[];
@@ -35,17 +33,20 @@ function searchOptionReducer(
         ...state,
         filters: {},
       };
+    default:
+      return state;
   }
 }
 
 interface SearchOptionContextType extends SearchOptionState {
   updateFilters: (filters: Partial<SearchFilters>) => void;
   resetFilters: () => void;
+  categories: string[];
 }
 
 export const SearchOptionContext = createContext<
-  SearchOptionContextType | NullSymbolType
->(NullSymbol);
+  SearchOptionContextType | undefined
+>(undefined);
 
 export function SearchOptionProvider({
   children,
@@ -53,7 +54,10 @@ export function SearchOptionProvider({
   children: React.ReactNode;
 }) {
   const { data: categories } = useProductCategories();
-  const [state, dispatch] = useReducer(searchOptionReducer, initialState);
+
+  const [state, dispatch] = useReducer(searchOptionReducer, {
+    ...initialState,
+  });
 
   const updateFilters = useCallback((filters: Partial<SearchFilters>) => {
     dispatch({ type: "SET_FILTERS", payload: filters });
@@ -67,7 +71,7 @@ export function SearchOptionProvider({
     ...state,
     updateFilters,
     resetFilters,
-    categories,
+    categories: categories || [],
   };
 
   return (
