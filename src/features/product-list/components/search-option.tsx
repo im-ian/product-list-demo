@@ -30,17 +30,12 @@ interface SearchOptionProps {
 }
 
 export function SearchOption({ productAutocompleteItems }: SearchOptionProps) {
-  const { categories, updateFilters, resetFilters } = useSearchOption();
+  const { filters, categories, updateFilters, resetFilters } =
+    useSearchOption();
 
   const form = useForm<SearchFilters>({
     resolver: zodResolver(SearchFiltersSchema),
-    defaultValues: {
-      useFilter: true,
-      name: "",
-      priceRange: [PRICE_RANGE_MIN, PRICE_RANGE_MAX],
-      inStock: true,
-      category: [],
-    },
+    defaultValues: filters,
   });
 
   const handleFilterChange = (field: keyof SearchFilters, value: any) => {
@@ -118,6 +113,7 @@ export function SearchOption({ productAutocompleteItems }: SearchOptionProps) {
               </div>
               <FormControl>
                 <Switch
+                  defaultChecked={field.value}
                   checked={field.value}
                   onCheckedChange={(checked) =>
                     handleFilterChange("inStock", checked)
