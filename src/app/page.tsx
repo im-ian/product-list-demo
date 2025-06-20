@@ -9,9 +9,10 @@ import {
 import { useProductList } from "@/features/product-list/hooks/use-product-list";
 import { useMemo } from "react";
 import { getFilteredProducts } from "@/features/product-list/utils/filter";
-
-const INITIAL_PAGE = 1;
-const PAGE_SIZE = 6;
+import {
+  INITIAL_PAGE,
+  PAGE_SIZE,
+} from "@/features/product-list/constants/product-list";
 
 function ProductListPage() {
   const {

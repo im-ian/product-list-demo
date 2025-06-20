@@ -8,8 +8,7 @@ import { ProductCardSkeleton } from "@/features/product/components/product-card-
 import { useSearchOption } from "../context/search-option-context";
 import { Product } from "@/features/product/types/product";
 import { getIsActiveSearchOption } from "../context/search-option-context";
-
-const PAGE_SIZE = 10;
+import { PAGE_SIZE } from "../constants/product-list";
 
 interface ProductListProps {
   totalCount: number;
@@ -36,6 +35,10 @@ export function ProductList({
   const observerRef = useRef<HTMLDivElement>(null);
 
   const canLoadMore = !isActiveSearchOption && hasNextPage;
+
+  console.log(filters);
+  console.log("isActiveSearchOption", isActiveSearchOption);
+  console.log("canLoadMore", canLoadMore);
 
   if (error) {
     return (

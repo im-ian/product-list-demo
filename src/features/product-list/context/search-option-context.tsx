@@ -4,6 +4,7 @@ import { createContext, useReducer, useCallback, useContext } from "react";
 import { SearchFilters } from "../type/product-search";
 import { useProductCategories } from "../hooks/use-product-categories";
 import { shallowEqual } from "@/features/shared/utils/object";
+import { PRICE_RANGE_MIN, PRICE_RANGE_MAX } from "../constants/search-option";
 
 type SearchOptionAction =
   | { type: "SET_FILTERS"; payload: Partial<SearchFilters> }
@@ -13,7 +14,7 @@ type SearchOptionAction =
 export const DEFAULT_SEARCH_FILTERS: SearchFilters = {
   useFilter: true,
   name: "",
-  priceRange: [0, 10_000_000],
+  priceRange: [PRICE_RANGE_MIN, PRICE_RANGE_MAX],
   inStock: true,
   category: [],
 };

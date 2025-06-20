@@ -20,16 +20,12 @@ import {
 import { useSearchOption } from "../hooks/use-search-option";
 import { LabeledCheckbox } from "@/features/shared/components/labeled-checkbox";
 import { SearchFilters, SearchFiltersSchema } from "../type/product-search";
-import { InfiniteData } from "@tanstack/react-query";
-import { ProductListResponse } from "../type/product-list";
 import { AutoComplete } from "@/features/shared/components/autocomplete-input";
 import { Product } from "@/features/product/types/product";
 
 import "react-range-slider-input/dist/style.css";
 import { formatPrice } from "@/features/product/utils/price";
-
-const PRICE_RANGE_MIN = 0;
-const PRICE_RANGE_MAX = 5_000_000;
+import { PRICE_RANGE_MAX, PRICE_RANGE_MIN } from "../constants/search-option";
 
 interface SearchOptionProps {
   products: Product[];
