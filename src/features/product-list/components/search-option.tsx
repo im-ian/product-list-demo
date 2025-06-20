@@ -21,25 +21,16 @@ import { useSearchOption } from "../hooks/use-search-option";
 import { LabeledCheckbox } from "@/features/shared/components/labeled-checkbox";
 import { SearchFilters, SearchFiltersSchema } from "../type/product-search";
 import { AutoComplete } from "@/features/shared/components/autocomplete-input";
-import { Product } from "@/features/product/types/product";
-
-import "react-range-slider-input/dist/style.css";
 import { formatPrice } from "@/features/product/utils/price";
 import { PRICE_RANGE_MAX, PRICE_RANGE_MIN } from "../constants/search-option";
 import { Button } from "@/components/ui/button";
 
 interface SearchOptionProps {
-  products: Product[];
-  isLoading: boolean;
-  error: Error | null;
+  productAutocompleteItems: { value: string; label: string }[];
 }
 
-export function SearchOption({
-  products,
-  isLoading,
-  error,
-}: SearchOptionProps) {
-  const { categories, updateFilters, filters } = useSearchOption();
+export function SearchOption({ productAutocompleteItems }: SearchOptionProps) {
+  const { categories, updateFilters, resetFilters } = useSearchOption();
 
   const form = useForm<SearchFilters>({
     resolver: zodResolver(SearchFiltersSchema),
@@ -56,12 +47,6 @@ export function SearchOption({
     form.setValue(field, value);
     updateFilters({ ...form.getValues(), [field]: value });
   };
-
-  const productAutocompleteItems =
-    products.map((product) => ({
-      value: product.name,
-      label: product.name,
-    })) || [];
 
   return (
     <Form {...form}>
@@ -237,7 +222,15 @@ export function SearchOption({
           )}
         />
 
-        <Button onClick={() => form.reset()}>필터 초기화</Button>
+        <Button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            resetFilters();
+          }}
+        >
+          필터 초기화
+        </Button>
       </form>
     </Form>
   );

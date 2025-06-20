@@ -2,10 +2,7 @@
 
 import { ProductList } from "@/features/product-list/components/product-list";
 import { SearchOption } from "@/features/product-list/components/search-option";
-import {
-  SearchOptionProvider,
-  useSearchOption,
-} from "@/features/product-list/context/search-option-context";
+import { SearchOptionProvider } from "@/features/product-list/context/search-option-context";
 import { useProductList } from "@/features/product-list/hooks/use-product-list";
 import { useMemo } from "react";
 import { getFilteredProducts } from "@/features/product-list/utils/filter";
@@ -13,6 +10,7 @@ import {
   INITIAL_PAGE,
   PAGE_SIZE,
 } from "@/features/product-list/constants/product-list";
+import { useSearchOption } from "@/features/product-list/hooks/use-search-option";
 
 function ProductListPage() {
   const {
@@ -35,16 +33,17 @@ function ProductListPage() {
     [products, filters]
   );
 
+  const productAutocompleteItems = filteredProducts.map((product) => ({
+    value: product.name,
+    label: product.name,
+  }));
+
   const totalCount = data?.pages[0]?.totalCount || 0;
 
   return (
     <div className="flex flex-col md:flex-row gap-8">
       <div className="lg:block hidden lg:w-1/6">
-        <SearchOption
-          products={filteredProducts}
-          isLoading={isLoading}
-          error={error}
-        />
+        <SearchOption productAutocompleteItems={productAutocompleteItems} />
       </div>
       <div className="lg:w-5/6">
         <ProductList
