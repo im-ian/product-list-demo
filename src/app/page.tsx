@@ -45,21 +45,22 @@ function ProductListPage() {
   }));
 
   return (
-    <div className="flex flex-col md:flex-row gap-8">
+    <div className="flex flex-col lg:flex-row gap-8">
       <div className="hidden lg:block lg:w-1/6">
         <SearchOption productAutocompleteItems={productAutocompleteItems} />
       </div>
-      <div className="visible lg:hidden">
-        <Button
-          variant="outline"
-          size="icon"
-          onClick={() => setIsSearchOptionDrawerOpen(true)}
-        >
-          <SlidersHorizontal />
-        </Button>
-      </div>
 
       <div className="w-full lg:w-5/6">
+        <div className="text-right visible lg:hidden">
+          <Button
+            variant="outline"
+            onClick={() => setIsSearchOptionDrawerOpen(true)}
+          >
+            <SlidersHorizontal />
+            <span className="text-sm">상품필터</span>
+          </Button>
+        </div>
+
         <ProductList
           filteredProducts={filteredProducts}
           isLoading={isLoading}
