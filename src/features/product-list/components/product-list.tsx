@@ -9,7 +9,7 @@ import { useSearchOption } from "../context/search-option-context";
 import { Product } from "@/features/product/types/product";
 import { getIsActiveSearchOption } from "../context/search-option-context";
 
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 10;
 
 interface ProductListProps {
   totalCount: number;
