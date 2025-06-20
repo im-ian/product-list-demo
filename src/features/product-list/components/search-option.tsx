@@ -31,8 +31,8 @@ const PRICE_RANGE_MIN = 0;
 const PRICE_RANGE_MAX = 5_000_000;
 
 export function SearchOption() {
-  const { categories, updateFilters } = useSearchOption();
-  const { data } = useProductList();
+  const { categories, updateFilters, filters } = useSearchOption();
+  const { data: products } = useProductList();
 
   const form = useForm<SearchFilters>({
     resolver: zodResolver(SearchFiltersSchema),
@@ -45,13 +45,27 @@ export function SearchOption() {
     },
   });
 
-  const handleFilterChange = (
-    field: keyof SearchFilters,
-    value: SearchFilters[keyof SearchFilters]
-  ) => {
+  const handleFilterChange = (field: keyof SearchFilters, value: any) => {
     form.setValue(field, value);
     updateFilters({ ...form.getValues(), [field]: value });
   };
+
+  const productAutocompleteItems =
+    products?.pages.flatMap((page) =>
+      page.data
+        .filter((product) => {
+          const isInStock = filters.inStock ? product.inStock : true;
+          const isSearchValue =
+            !filters.name ||
+            product.name.toLowerCase().includes(filters.name.toLowerCase());
+
+          return isInStock && isSearchValue;
+        })
+        .map((product) => ({
+          value: product.name,
+          label: product.name,
+        }))
+    ) || [];
 
   return (
     <Form {...form}>
@@ -151,14 +165,7 @@ export function SearchOption() {
                   onSelectedValueChange={(value) =>
                     handleFilterChange("name", value)
                   }
-                  items={
-                    data?.pages.flatMap((page) =>
-                      page.data.map((product) => ({
-                        value: product.name,
-                        label: product.name,
-                      }))
-                    ) || []
-                  }
+                  items={productAutocompleteItems}
                 />
               </FormControl>
             </FormItem>
