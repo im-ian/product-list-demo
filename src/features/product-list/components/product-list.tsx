@@ -15,7 +15,7 @@ const PAGE_SIZE = 6;
 
 function getFilteredProducts(
   products: Product[],
-  searchOptions: SearchFilters
+  { useFilter, name, priceRange, category, inStock }: SearchFilters
 ) {
   const { useFilter, name, priceRange, category, inStock } = searchOptions;
   if (!useFilter) return products;
@@ -61,7 +61,9 @@ export function ProductList() {
     pageSize: PAGE_SIZE,
   });
 
-  const searchOptions = useSearchOption();
+  const { filters } = useSearchOption();
+  const isActiveSearchOption = getIsActiveSearchOption(filters);
+  console.log("isActiveSearchOption", isActiveSearchOption);
 
   const observerRef = useRef<HTMLDivElement>(null);
 
@@ -69,9 +71,12 @@ export function ProductList() {
   const products = data?.pages.flatMap((page) => page.data) || [];
 
   const filteredProducts = useMemo(
-    () => getFilteredProducts(products, searchOptions),
-    [products, searchOptions]
+    () => getFilteredProducts(products, filters),
+    [products, filters]
   );
+
+  const canLoadMore = !isActiveSearchOption && hasNextPage;
+  console.log("canLoadMore", canLoadMore);
 
   if (error) {
     return (
@@ -141,7 +146,7 @@ export function ProductList() {
       </div>
 
       {/* 무한 스크롤 감지 엘리먼트 */}
-      {hasNextPage && <div ref={observerRef} />}
+      {canLoadMore && <div ref={observerRef} />}
 
       {/* 모든 제품을 로드한 경우 */}
       {!hasNextPage && products.length > 0 && (
