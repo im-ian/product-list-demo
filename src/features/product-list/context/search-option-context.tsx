@@ -28,7 +28,6 @@ function searchOptionReducer(
       };
     case "RESET_FILTERS":
       return {
-        ...state,
         ...initialState,
       };
     default:

@@ -1,14 +1,52 @@
 "use client";
 
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useMemo } from "react";
 import { useProductList } from "../hooks/use-product-list";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/features/product/components/product-card";
 import { ProductCardSkeleton } from "@/features/product/components/product-card-skeleton";
+import { useSearchOption } from "../hooks/use-search-option";
+import { Product } from "@/features/product/types/product";
+import { SearchFilters } from "../type/product-search";
 
 const INITIAL_PAGE = 1;
 const PAGE_SIZE = 6;
+
+function getFilteredProducts(
+  products: Product[],
+  searchOptions: SearchFilters
+) {
+  const { useFilter, name, priceRange, category, inStock } = searchOptions;
+  if (!useFilter) return products;
+
+  let filteredProducts = structuredClone(products);
+
+  if (name) {
+    filteredProducts = filteredProducts.filter((product) =>
+      product.name.toLowerCase().includes(name.toLowerCase())
+    );
+  }
+
+  if (priceRange) {
+    const [minPrice, maxPrice] = priceRange;
+    filteredProducts = filteredProducts.filter(
+      (product) => product.price >= minPrice && product.price <= maxPrice
+    );
+  }
+
+  if (category?.length) {
+    filteredProducts = filteredProducts.filter((product) =>
+      category.some((cat) => product.category.includes(cat))
+    );
+  }
+
+  if (inStock) {
+    filteredProducts = filteredProducts.filter((product) => product.inStock);
+  }
+
+  return filteredProducts;
+}
 
 export function ProductList() {
   const {
@@ -23,10 +61,17 @@ export function ProductList() {
     pageSize: PAGE_SIZE,
   });
 
+  const searchOptions = useSearchOption();
+
   const observerRef = useRef<HTMLDivElement>(null);
 
   const totalCount = data?.pages[0]?.totalCount || 0;
   const products = data?.pages.flatMap((page) => page.data) || [];
+
+  const filteredProducts = useMemo(
+    () => getFilteredProducts(products, searchOptions),
+    [products, searchOptions]
+  );
 
   if (error) {
     return (
@@ -84,7 +129,7 @@ export function ProductList() {
           ? Array.from({ length: PAGE_SIZE }).map((_, index) => (
               <ProductCardSkeleton key={`skeleton-${index}`} index={index} />
             ))
-          : products.map((product) => (
+          : filteredProducts.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
 
