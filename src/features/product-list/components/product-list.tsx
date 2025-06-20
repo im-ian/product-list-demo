@@ -82,9 +82,6 @@ export function ProductList({
     <div className="container mx-auto space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold">제품 목록</h1>
-        {!isLoading && (
-          <Badge variant="secondary">총 {totalCount}개 상품이 있어요!</Badge>
-        )}
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
