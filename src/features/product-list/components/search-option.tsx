@@ -24,12 +24,15 @@ import { SearchFilters, SearchFiltersSchema } from "../type/product-search";
 
 import "react-range-slider-input/dist/style.css";
 import { formatPrice } from "@/features/product/utils/price";
+import { useProductList } from "../hooks/use-product-list";
+import { AutoComplete } from "@/features/shared/components/autocomplete-input";
 
 const PRICE_RANGE_MIN = 0;
 const PRICE_RANGE_MAX = 5_000_000;
 
 export function SearchOption() {
   const { categories, updateFilters } = useSearchOption();
+  const { data } = useProductList();
 
   const form = useForm<SearchFilters>({
     resolver: zodResolver(SearchFiltersSchema),
@@ -135,10 +138,24 @@ export function SearchOption() {
             <FormItem>
               <FormLabel className="text-sm font-bold">검색</FormLabel>
               <FormControl>
-                <Input
+                <AutoComplete
+                  searchValue={field.value || ""}
+                  selectedValue={field.value || ""}
                   placeholder="제품명을 입력하세요."
-                  {...field}
-                  onChange={(e) => handleFilterChange("name", e.target.value)}
+                  onSearchValueChange={(value) =>
+                    handleFilterChange("name", value)
+                  }
+                  onSelectedValueChange={(value) =>
+                    handleFilterChange("name", value)
+                  }
+                  items={
+                    data?.pages.flatMap((page) =>
+                      page.data.map((product) => ({
+                        value: product.name,
+                        label: product.name,
+                      }))
+                    ) || []
+                  }
                 />
               </FormControl>
             </FormItem>
