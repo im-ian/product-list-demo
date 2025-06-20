@@ -5,8 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/features/product/components/product-card";
 import { ProductCardSkeleton } from "@/features/product/components/product-card-skeleton";
-import { useSearchOption } from "../context/search-option-context";
-import { Product } from "@/features/product/types/product";
+import { useSearchOption } from "../hooks/use-search-option";
+import type { Product } from "@/features/product/types/product";
 import { getIsActiveSearchOption } from "../context/search-option-context";
 import { PAGE_SIZE } from "../constants/product-list";
 
@@ -35,10 +35,6 @@ export function ProductList({
   const observerRef = useRef<HTMLDivElement>(null);
 
   const canLoadMore = !isActiveSearchOption && hasNextPage;
-
-  console.log(filters);
-  console.log("isActiveSearchOption", isActiveSearchOption);
-  console.log("canLoadMore", canLoadMore);
 
   if (error) {
     return (
