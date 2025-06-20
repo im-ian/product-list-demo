@@ -2,12 +2,15 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import type { Product } from "../types/product";
+import { formatPrice, getDiscountRate } from "../utils/price";
 
 interface ProductCardProps {
   product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
+  const discountRate = getDiscountRate(product.price, product.discountedPrice);
+
   return (
     <Card
       className={cn(
@@ -30,7 +33,7 @@ export function ProductCard({ product }: ProductCardProps) {
           </Badge>
         </div>
       </div>
-      <CardHeader className="pb-2">
+      <CardHeader className="pb-2 gap-0">
         <div className="flex items-start justify-between gap-2">
           <h3 className="font-semibold text-xl line-clamp-2">{product.name}</h3>
           <Badge variant="outline" className="text-xs shrink-0">
@@ -42,9 +45,26 @@ export function ProductCard({ product }: ProductCardProps) {
         <p className="text-xs text-muted-foreground line-clamp-2">
           {product.description}
         </p>
-        <div className="flex items-center justify-between">
-          <span className="font-bold text-lg">
-            {product.price.toLocaleString()}원
+        <div className="flex items-end gap-2">
+          {product.discountedPrice && (
+            <span className="font-bold text-lg lg:text-xl text-red-500">
+              {discountRate}%
+            </span>
+          )}
+          {product.discountedPrice && (
+            <span className="font-bold text-lg lg:text-xl">
+              {formatPrice(product.discountedPrice)}원
+            </span>
+          )}
+          <span
+            className={cn(
+              "font-bold",
+              product.discountedPrice
+                ? "text-gray-400 text-xs md:text-sm line-through"
+                : "text-xl sm:text-lg xl:text-xl"
+            )}
+          >
+            {formatPrice(product.price)}원
           </span>
         </div>
       </CardContent>
