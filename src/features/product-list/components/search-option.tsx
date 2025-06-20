@@ -45,7 +45,10 @@ export function SearchOption() {
     },
   });
 
-  const handleFilterChange = (field: keyof SearchFilters, value: any) => {
+  const handleFilterChange = (
+    field: keyof SearchFilters,
+    value: SearchFilters[keyof SearchFilters]
+  ) => {
     form.setValue(field, value);
     updateFilters({ ...form.getValues(), [field]: value });
   };
