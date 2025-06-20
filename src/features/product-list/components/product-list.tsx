@@ -42,7 +42,7 @@ export function ProductList() {
   };
 
   return (
-    <div className="container mx-auto p-6 space-y-6">
+    <div className="container mx-auto space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-3xl font-bold">제품 목록</h1>
         {!isLoading && (
@@ -50,7 +50,7 @@ export function ProductList() {
         )}
       </div>
 
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {isLoading
           ? Array.from({ length: PAGE_SIZE }).map((_, index) => (
               <ProductCardSkeleton key={`skeleton-${index}`} index={index} />
