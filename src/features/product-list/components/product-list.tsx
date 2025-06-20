@@ -10,7 +10,6 @@ import { getIsActiveSearchOption } from "../context/search-option-context";
 import { PAGE_SIZE } from "../constants/product-list";
 
 interface ProductListProps {
-  totalCount: number;
   filteredProducts: Product[];
   isLoading: boolean;
   error: Error | null;
@@ -20,7 +19,6 @@ interface ProductListProps {
 }
 
 export function ProductList({
-  totalCount,
   filteredProducts,
   isLoading,
   error,

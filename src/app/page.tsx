@@ -44,8 +44,6 @@ function ProductListPage() {
     label: product.name,
   }));
 
-  const totalCount = data?.pages[0]?.totalCount || 0;
-
   return (
     <div className="flex flex-col md:flex-row gap-8">
       <div className="hidden lg:block lg:w-1/6">
@@ -63,7 +61,6 @@ function ProductListPage() {
 
       <div className="w-full lg:w-5/6">
         <ProductList
-          totalCount={totalCount}
           filteredProducts={filteredProducts}
           isLoading={isLoading}
           error={error}
