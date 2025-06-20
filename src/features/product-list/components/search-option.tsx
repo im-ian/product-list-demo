@@ -26,6 +26,7 @@ import { Product } from "@/features/product/types/product";
 import "react-range-slider-input/dist/style.css";
 import { formatPrice } from "@/features/product/utils/price";
 import { PRICE_RANGE_MAX, PRICE_RANGE_MIN } from "../constants/search-option";
+import { Button } from "@/components/ui/button";
 
 interface SearchOptionProps {
   products: Product[];
@@ -235,6 +236,8 @@ export function SearchOption({
             </FormItem>
           )}
         />
+
+        <Button onClick={() => form.reset()}>필터 초기화</Button>
       </form>
     </Form>
   );
