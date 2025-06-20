@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useReducer, useCallback } from "react";
+import { createContext, useReducer, useCallback, useContext } from "react";
 import { SearchFilters } from "../type/product-search";
 import { useProductCategories } from "../hooks/use-product-categories";
 import { shallowEqual } from "@/features/shared/utils/object";
@@ -91,4 +91,14 @@ export function SearchOptionProvider({
       {children}
     </SearchOptionContext.Provider>
   );
+}
+
+export function useSearchOption() {
+  const context = useContext(SearchOptionContext);
+  if (context === undefined) {
+    throw new Error(
+      "useSearchOption must be used within a SearchOptionProvider"
+    );
+  }
+  return context;
 }

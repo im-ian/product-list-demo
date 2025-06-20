@@ -20,18 +20,29 @@ import {
 import { useSearchOption } from "../hooks/use-search-option";
 import { LabeledCheckbox } from "@/features/shared/components/labeled-checkbox";
 import { SearchFilters, SearchFiltersSchema } from "../type/product-search";
+import { InfiniteData } from "@tanstack/react-query";
+import { ProductListResponse } from "../type/product-list";
+import { AutoComplete } from "@/features/shared/components/autocomplete-input";
+import { Product } from "@/features/product/types/product";
 
 import "react-range-slider-input/dist/style.css";
 import { formatPrice } from "@/features/product/utils/price";
-import { useProductList } from "../hooks/use-product-list";
-import { AutoComplete } from "@/features/shared/components/autocomplete-input";
 
 const PRICE_RANGE_MIN = 0;
 const PRICE_RANGE_MAX = 5_000_000;
 
-export function SearchOption() {
+interface SearchOptionProps {
+  products: Product[];
+  isLoading: boolean;
+  error: Error | null;
+}
+
+export function SearchOption({
+  products,
+  isLoading,
+  error,
+}: SearchOptionProps) {
   const { categories, updateFilters, filters } = useSearchOption();
-  const { data: products } = useProductList();
 
   const form = useForm<SearchFilters>({
     resolver: zodResolver(SearchFiltersSchema),
@@ -50,21 +61,10 @@ export function SearchOption() {
   };
 
   const productAutocompleteItems =
-    products?.pages.flatMap((page) =>
-      page.data
-        .filter((product) => {
-          const isInStock = filters.inStock ? product.inStock : true;
-          const isSearchValue =
-            !filters.name ||
-            product.name.toLowerCase().includes(filters.name.toLowerCase());
-
-          return isInStock && isSearchValue;
-        })
-        .map((product) => ({
-          value: product.name,
-          label: product.name,
-        }))
-    ) || [];
+    products.map((product) => ({
+      value: product.name,
+      label: product.name,
+    })) || [];
 
   return (
     <Form {...form}>

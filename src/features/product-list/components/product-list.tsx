@@ -1,82 +1,41 @@
 "use client";
 
-import { useEffect, useRef, useCallback, useMemo } from "react";
-import { useProductList } from "../hooks/use-product-list";
+import { useEffect, useRef, useCallback } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/features/product/components/product-card";
 import { ProductCardSkeleton } from "@/features/product/components/product-card-skeleton";
-import { useSearchOption } from "../hooks/use-search-option";
+import { useSearchOption } from "../context/search-option-context";
 import { Product } from "@/features/product/types/product";
-import { SearchFilters } from "../type/product-search";
 import { getIsActiveSearchOption } from "../context/search-option-context";
 
-const INITIAL_PAGE = 1;
 const PAGE_SIZE = 6;
 
-function getFilteredProducts(
-  products: Product[],
-  { useFilter, name, priceRange, category, inStock }: SearchFilters
-) {
-  if (!useFilter) return products;
-
-  let filteredProducts = structuredClone(products);
-
-  if (name) {
-    filteredProducts = filteredProducts.filter((product) =>
-      product.name.toLowerCase().includes(name.toLowerCase())
-    );
-  }
-
-  if (priceRange) {
-    const [minPrice, maxPrice] = priceRange;
-    filteredProducts = filteredProducts.filter(
-      (product) => product.price >= minPrice && product.price <= maxPrice
-    );
-  }
-
-  if (category?.length) {
-    filteredProducts = filteredProducts.filter((product) =>
-      category.some((cat) => product.category.includes(cat))
-    );
-  }
-
-  if (inStock) {
-    filteredProducts = filteredProducts.filter((product) => product.inStock);
-  }
-
-  return filteredProducts;
+interface ProductListProps {
+  totalCount: number;
+  filteredProducts: Product[];
+  isLoading: boolean;
+  error: Error | null;
+  fetchNextPage: () => Promise<any>;
+  hasNextPage: boolean;
+  isFetchingNextPage: boolean;
 }
 
-export function ProductList() {
-  const {
-    data,
-    isLoading,
-    error,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-  } = useProductList({
-    initialPage: INITIAL_PAGE,
-    pageSize: PAGE_SIZE,
-  });
-
+export function ProductList({
+  totalCount,
+  filteredProducts,
+  isLoading,
+  error,
+  fetchNextPage,
+  hasNextPage,
+  isFetchingNextPage,
+}: ProductListProps) {
   const { filters } = useSearchOption();
   const isActiveSearchOption = getIsActiveSearchOption(filters);
-  console.log("isActiveSearchOption", isActiveSearchOption);
 
   const observerRef = useRef<HTMLDivElement>(null);
 
-  const totalCount = data?.pages[0]?.totalCount || 0;
-  const products = data?.pages.flatMap((page) => page.data) || [];
-
-  const filteredProducts = useMemo(
-    () => getFilteredProducts(products, filters),
-    [products, filters]
-  );
-
   const canLoadMore = !isActiveSearchOption && hasNextPage;
-  console.log("canLoadMore", canLoadMore);
 
   if (error) {
     return (
@@ -99,17 +58,17 @@ export function ProductList() {
     const observer = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
-        if (entry.isIntersecting && hasNextPage && !isFetchingNextPage) {
+        if (entry.isIntersecting && canLoadMore) {
           handleLoadMore();
         }
       },
       {
-        rootMargin: "100px", // 100px 전에 로드 시작
+        rootMargin: "100px",
         threshold: 0.1,
       }
     );
 
-    if (observerRef.current && hasNextPage && !isFetchingNextPage) {
+    if (observerRef.current && canLoadMore) {
       observer.observe(observerRef.current);
     }
 
@@ -118,7 +77,7 @@ export function ProductList() {
         observer.unobserve(observerRef.current);
       }
     };
-  }, [hasNextPage, isFetchingNextPage, handleLoadMore]);
+  }, [canLoadMore, handleLoadMore]);
 
   return (
     <div className="container mx-auto space-y-6">
@@ -138,18 +97,18 @@ export function ProductList() {
               <ProductCard key={product.id} product={product} />
             ))}
 
-        {/* 무한 스크롤 로딩 중에 스켈레톤 표시 */}
         {isFetchingNextPage &&
           Array.from({ length: PAGE_SIZE }).map((_, index) => (
-            <ProductCardSkeleton key={`skeleton-${index}`} index={index} />
+            <ProductCardSkeleton
+              key={`isFetchingNextPage-skeleton-${index}`}
+              index={index}
+            />
           ))}
       </div>
 
-      {/* 무한 스크롤 감지 엘리먼트 */}
       {canLoadMore && <div ref={observerRef} />}
 
-      {/* 모든 제품을 로드한 경우 */}
-      {!hasNextPage && products.length > 0 && (
+      {!hasNextPage && filteredProducts.length > 0 && (
         <div className="text-center py-8">
           <p className="text-muted-foreground">모든 제품을 불러왔습니다. 🚀</p>
           <Button
