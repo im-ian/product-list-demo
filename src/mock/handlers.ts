@@ -4,7 +4,7 @@ import productListData from "./data/products.json";
 export const handlers = [
   http.get("/api/product-list", async ({ request }) => {
     // 3초 딜레이 추가
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 1500));
 
     const url = new URL(request.url);
     const page = parseInt(url.searchParams.get("page") || "1");
