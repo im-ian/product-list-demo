@@ -1,20 +1,19 @@
-import { useQuery, queryOptions } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import type { ProductListResponse } from "@/features/product-list/type/product-list";
 
 interface UseProductListParams {
-  page: number;
-  pageSize: number;
+  initialPage?: number;
+  pageSize?: number;
 }
 
-const createProductListQueryOptions = ({
-  page = 1,
-  pageSize = 10,
-}: UseProductListParams) =>
-  queryOptions<ProductListResponse>({
-    queryKey: ["product-list", page, pageSize] as const,
-    queryFn: async () => {
+export function useProductList(params: UseProductListParams = {}) {
+  const { initialPage = 1, pageSize = 10 } = params;
+
+  return useInfiniteQuery({
+    queryKey: ["product-list", pageSize] as const,
+    queryFn: async ({ pageParam = 1 }) => {
       const params = new URLSearchParams({
-        page: page.toString(),
+        page: pageParam.toString(),
         pageSize: pageSize.toString(),
       });
 
@@ -22,13 +21,15 @@ const createProductListQueryOptions = ({
       if (!response.ok) {
         throw new Error("Failed to fetch product list.");
       }
-      return response.json();
+      return response.json() as Promise<ProductListResponse>;
+    },
+    initialPageParam: initialPage,
+    getNextPageParam: (lastPage: ProductListResponse, allPages) => {
+      const totalPages = Math.ceil(lastPage.totalCount / lastPage.pageSize);
+      const nextPage = allPages.length + 1;
+      return nextPage <= totalPages ? nextPage : undefined;
     },
     staleTime: 5 * 60 * 1000,
     refetchOnWindowFocus: false,
   });
-
-export function useProductList(params: UseProductListParams) {
-  const queryOptions = createProductListQueryOptions(params);
-  return useQuery(queryOptions);
 }
