@@ -10,7 +10,23 @@ export function shallowEqual(
   if (keysA.length !== keysB.length) return false;
 
   for (const key of keysA) {
-    if (!objB.hasOwnProperty(key) || objA[key] !== objB[key]) {
+    if (!objB.hasOwnProperty(key)) {
+      return false;
+    }
+
+    const valueA = objA[key];
+    const valueB = objB[key];
+
+    if (Array.isArray(valueA) && Array.isArray(valueB)) {
+      if (valueA.length !== valueB.length) {
+        return false;
+      }
+      for (let i = 0; i < valueA.length; i++) {
+        if (valueA[i] !== valueB[i]) {
+          return false;
+        }
+      }
+    } else if (valueA !== valueB) {
       return false;
     }
   }
