@@ -1,52 +1,272 @@
-{
-  "data": [
-    {
-      "id": "1",
-      "name": "MacBook Pro 14",
-      "price": 2499000,
-      "description": "Apple M3 Pro 칩 탑재, 14인치 Liquid Retina XDR 디스플레이",
-      "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
-      "category": "노트북",
-      "inStock": true
-    },
-    {
-      "id": "2",
-      "name": "iPhone 15 Pro",
-      "price": 1550000,
-      "description": "A17 Pro 칩, 48MP 메인 카메라, 티타늄 디자인",
-      "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
-      "category": "스마트폰",
-      "inStock": true
-    },
-    {
-      "id": "3",
-      "name": "AirPods Pro",
-      "price": 359000,
-      "description": "액티브 노이즈 캔슬링, 공간 음향, USB-C 충전",
-      "imageUrl": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
-      "category": "이어폰",
-      "inStock": false
-    },
-    {
-      "id": "4",
-      "name": "iPad Air",
-      "price": 899000,
-      "description": "M2 칩, 10.9인치 Liquid Retina 디스플레이",
-      "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
-      "category": "태블릿",
-      "inStock": true
-    },
-    {
-      "id": "5",
-      "name": "Apple Watch Series 9",
-      "price": 599000,
-      "description": "S9 칩, 더블 탭 제스처, 항상 켜진 Retina 디스플레이",
-      "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
-      "category": "웨어러블",
-      "inStock": true
-    }
-  ],
-  "totalCount": 5,
-  "page": 1,
-  "pageSize": 10
-}
+[
+  {
+    "id": "1",
+    "name": "MacBook Pro 14",
+    "price": 2499000,
+    "description": "Apple M3 Pro 칩 탑재, 14인치 Liquid Retina XDR 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
+    "category": "노트북",
+    "inStock": true
+  },
+  {
+    "id": "2",
+    "name": "iPhone 15 Pro",
+    "price": 1550000,
+    "description": "A17 Pro 칩, 48MP 메인 카메라, 티타늄 디자인",
+    "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
+    "category": "스마트폰",
+    "inStock": true
+  },
+  {
+    "id": "3",
+    "name": "AirPods Pro",
+    "price": 359000,
+    "description": "액티브 노이즈 캔슬링, 공간 음향, USB-C 충전",
+    "imageUrl": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
+    "category": "이어폰",
+    "inStock": false
+  },
+  {
+    "id": "4",
+    "name": "iPad Air",
+    "price": 899000,
+    "description": "M2 칩, 10.9인치 Liquid Retina 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
+    "category": "태블릿",
+    "inStock": true
+  },
+  {
+    "id": "5",
+    "name": "Apple Watch Series 9",
+    "price": 599000,
+    "description": "S9 칩, 더블 탭 제스처, 항상 켜진 Retina 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
+    "category": "웨어러블",
+    "inStock": true
+  },
+  {
+    "id": "6",
+    "name": "MacBook Air 13",
+    "price": 1590000,
+    "description": "M2 칩, 13.6인치 Liquid Retina 디스플레이, 최대 18시간 배터리",
+    "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
+    "category": "노트북",
+    "inStock": true
+  },
+  {
+    "id": "7",
+    "name": "iPhone 15",
+    "price": 1250000,
+    "description": "A16 Bionic 칩, 48MP 메인 카메라, Dynamic Island",
+    "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
+    "category": "스마트폰",
+    "inStock": true
+  },
+  {
+    "id": "8",
+    "name": "AirPods 3",
+    "price": 229000,
+    "description": "공간 음향, 적응형 EQ, 방수 및 땀 방지",
+    "imageUrl": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
+    "category": "이어폰",
+    "inStock": true
+  },
+  {
+    "id": "9",
+    "name": "iPad Pro 12.9",
+    "price": 1899000,
+    "description": "M2 칩, 12.9인치 Liquid Retina XDR 디스플레이, ProMotion",
+    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
+    "category": "태블릿",
+    "inStock": false
+  },
+  {
+    "id": "10",
+    "name": "Apple Watch SE",
+    "price": 399000,
+    "description": "S8 칩, 항상 켜진 Retina 디스플레이, 심전도 앱",
+    "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
+    "category": "웨어러블",
+    "inStock": true
+  },
+  {
+    "id": "11",
+    "name": "iMac 24",
+    "price": 1899000,
+    "description": "M3 칩, 24인치 4.5K Retina 디스플레이, 7가지 색상",
+    "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
+    "category": "데스크톱",
+    "inStock": true
+  },
+  {
+    "id": "12",
+    "name": "iPhone 14 Pro",
+    "price": 1450000,
+    "description": "A16 Bionic 칩, 48MP 메인 카메라, Dynamic Island",
+    "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
+    "category": "스마트폰",
+    "inStock": false
+  },
+  {
+    "id": "13",
+    "name": "AirPods Max",
+    "price": 799000,
+    "description": "액티브 노이즈 캔슬링, 공간 음향, 20시간 배터리",
+    "imageUrl": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
+    "category": "이어폰",
+    "inStock": true
+  },
+  {
+    "id": "14",
+    "name": "iPad mini",
+    "price": 699000,
+    "description": "A15 Bionic 칩, 8.3인치 Liquid Retina 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
+    "category": "태블릿",
+    "inStock": true
+  },
+  {
+    "id": "15",
+    "name": "Apple Watch Ultra",
+    "price": 1299000,
+    "description": "S8 칩, 49mm 티타늄 케이스, 액션 버튼",
+    "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
+    "category": "웨어러블",
+    "inStock": true
+  },
+  {
+    "id": "16",
+    "name": "Mac Studio",
+    "price": 2999000,
+    "description": "M2 Ultra 칩, 최대 192GB 통합 메모리, 전문가용",
+    "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
+    "category": "데스크톱",
+    "inStock": false
+  },
+  {
+    "id": "17",
+    "name": "iPhone 14",
+    "price": 1150000,
+    "description": "A15 Bionic 칩, 12MP 듀얼 카메라, 6.1인치 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
+    "category": "스마트폰",
+    "inStock": true
+  },
+  {
+    "id": "18",
+    "name": "Beats Studio Pro",
+    "price": 449000,
+    "description": "액티브 노이즈 캔슬링, 공간 음향, 40시간 배터리",
+    "imageUrl": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
+    "category": "이어폰",
+    "inStock": true
+  },
+  {
+    "id": "19",
+    "name": "iPad 10세대",
+    "price": 599000,
+    "description": "A14 Bionic 칩, 10.9인치 Liquid Retina 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
+    "category": "태블릿",
+    "inStock": true
+  },
+  {
+    "id": "20",
+    "name": "Apple Watch Series 8",
+    "price": 549000,
+    "description": "S8 칩, 심전도 앱, 온도 센서",
+    "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
+    "category": "웨어러블",
+    "inStock": false
+  },
+  {
+    "id": "21",
+    "name": "Mac mini",
+    "price": 899000,
+    "description": "M2 칩, 컴팩트한 디자인, 다양한 연결 옵션",
+    "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
+    "category": "데스크톱",
+    "inStock": true
+  },
+  {
+    "id": "22",
+    "name": "iPhone 13",
+    "price": 950000,
+    "description": "A15 Bionic 칩, 12MP 듀얼 카메라, 6.1인치 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
+    "category": "스마트폰",
+    "inStock": true
+  },
+  {
+    "id": "23",
+    "name": "Beats Fit Pro",
+    "price": 299000,
+    "description": "액티브 노이즈 캔슬링, 공간 음향, 운동용 디자인",
+    "imageUrl": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
+    "category": "이어폰",
+    "inStock": true
+  },
+  {
+    "id": "24",
+    "name": "iPad 9세대",
+    "price": 449000,
+    "description": "A13 Bionic 칩, 10.2인치 Retina 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
+    "category": "태블릿",
+    "inStock": false
+  },
+  {
+    "id": "25",
+    "name": "Apple Watch Series 7",
+    "price": 499000,
+    "description": "S7 칩, 항상 켜진 Retina 디스플레이, 빠른 충전",
+    "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
+    "category": "웨어러블",
+    "inStock": true
+  },
+  {
+    "id": "26",
+    "name": "Mac Pro",
+    "price": 8999000,
+    "description": "M2 Ultra 칩, 모듈형 디자인, 전문가용 워크스테이션",
+    "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
+    "category": "데스크톱",
+    "inStock": true
+  },
+  {
+    "id": "27",
+    "name": "iPhone 12",
+    "price": 850000,
+    "description": "A14 Bionic 칩, 12MP 듀얼 카메라, 6.1인치 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
+    "category": "스마트폰",
+    "inStock": false
+  },
+  {
+    "id": "28",
+    "name": "Beats Solo3",
+    "price": 249000,
+    "description": "무선 헤드폰, 40시간 배터리, Apple W1 칩",
+    "imageUrl": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
+    "category": "이어폰",
+    "inStock": true
+  },
+  {
+    "id": "29",
+    "name": "iPad 8세대",
+    "price": 399000,
+    "description": "A12 Bionic 칩, 10.2인치 Retina 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
+    "category": "태블릿",
+    "inStock": true
+  },
+  {
+    "id": "30",
+    "name": "Apple Watch Series 6",
+    "price": 449000,
+    "description": "S6 칩, 심전도 앱, 항상 켜진 Retina 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
+    "category": "웨어러블",
+    "inStock": false
+  }
+]
