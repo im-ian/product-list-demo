@@ -46,12 +46,12 @@ export function ProductCard({ product }: ProductCardProps) {
         </p>
         <div className="pt-4 flex items-end gap-2">
           {product.discountedPrice && (
-            <span className="font-bold text-lg lg:text-xl text-red-500">
+            <span className="font-bold text-lg lg:text-lg text-red-500">
               {discountRate}%
             </span>
           )}
           {product.discountedPrice && (
-            <span className="font-bold text-lg lg:text-xl">
+            <span className="font-bold text-lg lg:text-lg">
               {formatPrice(product.discountedPrice)}원
             </span>
           )}
@@ -59,8 +59,8 @@ export function ProductCard({ product }: ProductCardProps) {
             className={cn(
               "font-bold",
               product.discountedPrice
-                ? "text-gray-400 text-xs md:text-sm line-through"
-                : "text-xl sm:text-lg xl:text-xl"
+                ? "text-gray-400 text-xs sm:text-sm line-through"
+                : "text-lg sm:text-lg lg:text-xl"
             )}
           >
             {formatPrice(product.price)}원
