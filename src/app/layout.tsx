@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Providers } from "@/components/providers";
 
+import "react-range-slider-input/dist/style.css";
 import "./globals.css";
 
 const geist = Geist({
