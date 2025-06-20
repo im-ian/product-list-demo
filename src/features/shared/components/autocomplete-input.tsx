@@ -6,7 +6,6 @@ import { Check } from "lucide-react";
 import { useMemo, useState } from "react";
 import {
   Command,
-  CommandEmpty,
   CommandGroup,
   CommandItem,
   CommandList,

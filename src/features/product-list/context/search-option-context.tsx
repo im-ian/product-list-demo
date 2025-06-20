@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useReducer, useCallback, useContext } from "react";
+import { createContext, useReducer, useCallback } from "react";
 import { SearchFilters } from "../type/product-search";
 import { useProductCategories } from "../hooks/use-product-categories";
 import { shallowEqual } from "@/features/shared/utils/object";
