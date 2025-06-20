@@ -1,9 +1,12 @@
-export interface SearchFilters {
-  name?: string;
-  minPrice?: number;
-  maxPrice?: number;
-  inStock?: boolean;
-  category?: string;
-}
+import * as z from "zod";
+
+export const SearchFiltersSchema = z.object({
+  name: z.string().optional(),
+  priceRange: z.tuple([z.number(), z.number()]).optional(),
+  inStock: z.boolean().optional(),
+  category: z.array(z.string()).optional(),
+});
+
+export type SearchFilters = z.infer<typeof SearchFiltersSchema>;
 
 export type ProductCategoryResponse = { data: string[] };

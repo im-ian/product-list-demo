@@ -3,42 +3,40 @@
 import { createContext, useReducer, useCallback } from "react";
 import { SearchFilters } from "../type/product-search";
 import { useProductCategories } from "../hooks/use-product-categories";
-interface SearchOptionState {
-  filters: SearchFilters;
-  categories: string[];
-}
 
 type SearchOptionAction =
   | { type: "SET_FILTERS"; payload: Partial<SearchFilters> }
   | { type: "RESET_FILTERS" };
 
 // 초기 상태
-const initialState: SearchOptionState = {
-  filters: {},
-  categories: [],
+const initialState: SearchFilters = {
+  name: "",
+  priceRange: [0, 10_000_000],
+  inStock: false,
+  category: [],
 };
 
 function searchOptionReducer(
-  state: SearchOptionState,
+  state: SearchFilters,
   action: SearchOptionAction
-): SearchOptionState {
+): SearchFilters {
   switch (action.type) {
     case "SET_FILTERS":
       return {
         ...state,
-        filters: { ...state.filters, ...action.payload },
+        ...action.payload,
       };
     case "RESET_FILTERS":
       return {
         ...state,
-        filters: {},
+        ...initialState,
       };
     default:
       return state;
   }
 }
 
-interface SearchOptionContextType extends SearchOptionState {
+interface SearchOptionContextType extends SearchFilters {
   updateFilters: (filters: Partial<SearchFilters>) => void;
   resetFilters: () => void;
   categories: string[];
