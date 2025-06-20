@@ -9,6 +9,7 @@ import { ProductCardSkeleton } from "@/features/product/components/product-card-
 import { useSearchOption } from "../hooks/use-search-option";
 import { Product } from "@/features/product/types/product";
 import { SearchFilters } from "../type/product-search";
+import { getIsActiveSearchOption } from "../context/search-option-context";
 
 const INITIAL_PAGE = 1;
 const PAGE_SIZE = 6;
@@ -17,7 +18,6 @@ function getFilteredProducts(
   products: Product[],
   { useFilter, name, priceRange, category, inStock }: SearchFilters
 ) {
-  const { useFilter, name, priceRange, category, inStock } = searchOptions;
   if (!useFilter) return products;
 
   let filteredProducts = structuredClone(products);
