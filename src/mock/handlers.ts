@@ -35,7 +35,7 @@ export const handlers = [
     });
 
     return HttpResponse.json({
-      categories: Array.from(allCategories).sort(),
+      data: Array.from(allCategories).sort(),
     });
   }),
 
