@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect, useRef, useCallback } from "react";
 import { useProductList } from "../hooks/use-product-list";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { ProductCard } from "@/features/product/components/product-card";
 import { ProductCardSkeleton } from "@/features/product/components/product-card-skeleton";
 
@@ -21,6 +23,8 @@ export function ProductList() {
     pageSize: PAGE_SIZE,
   });
 
+  const observerRef = useRef<HTMLDivElement>(null);
+
   const totalCount = data?.pages[0]?.totalCount || 0;
   const products = data?.pages.flatMap((page) => page.data) || [];
 
@@ -35,11 +39,36 @@ export function ProductList() {
     );
   }
 
-  const handleLoadMore = () => {
+  const handleLoadMore = useCallback(() => {
     if (hasNextPage && !isFetchingNextPage) {
       fetchNextPage();
     }
-  };
+  }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && hasNextPage && !isFetchingNextPage) {
+          handleLoadMore();
+        }
+      },
+      {
+        rootMargin: "100px", // 100px 전에 로드 시작
+        threshold: 0.1,
+      }
+    );
+
+    if (observerRef.current && hasNextPage && !isFetchingNextPage) {
+      observer.observe(observerRef.current);
+    }
+
+    return () => {
+      if (observerRef.current) {
+        observer.unobserve(observerRef.current);
+      }
+    };
+  }, [hasNextPage, isFetchingNextPage, handleLoadMore]);
 
   return (
     <div className="container mx-auto space-y-6">
@@ -58,7 +87,31 @@ export function ProductList() {
           : products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
+
+        {/* 무한 스크롤 로딩 중에 스켈레톤 표시 */}
+        {isFetchingNextPage &&
+          Array.from({ length: PAGE_SIZE }).map((_, index) => (
+            <ProductCardSkeleton key={`skeleton-${index}`} index={index} />
+          ))}
       </div>
+
+      {/* 무한 스크롤 감지 엘리먼트 */}
+      {hasNextPage && <div ref={observerRef} />}
+
+      {/* 모든 제품을 로드한 경우 */}
+      {!hasNextPage && products.length > 0 && (
+        <div className="text-center py-8">
+          <p className="text-muted-foreground">모든 제품을 불러왔습니다. 🚀</p>
+          <Button
+            variant="outline"
+            size="sm"
+            className="mt-2"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            맨 위로 이동
+          </Button>
+        </div>
+      )}
     </div>
   );
 }
