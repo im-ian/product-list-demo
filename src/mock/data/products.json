@@ -294,5 +294,281 @@
     "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
     "category": ["웨어러블"],
     "inStock": false
+  },
+  {
+    "id": "31",
+    "name": "HomePod mini",
+    "price": 149000,
+    "description": "방 안을 가득 채우는 사운드, 스마트 홈 허브, Siri 연동",
+    "imageUrl": "https://images.unsplash.com/photo-1610438235354-a6ae5b081839?w=400",
+    "category": ["스마트 스피커", "홈"],
+    "inStock": true
+  },
+  {
+    "id": "32",
+    "name": "Apple TV 4K",
+    "price": 219000,
+    "description": "A15 Bionic 칩, 4K HDR, Dolby Atmos 사운드",
+    "imageUrl": "https://images.unsplash.com/photo-1585422216895-32a765377514?w=400",
+    "category": ["스트리밍", "홈"],
+    "inStock": true
+  },
+  {
+    "id": "33",
+    "name": "Magic Keyboard",
+    "price": 149000,
+    "description": "편안하고 정확한 타이핑 경험을 제공하는 무선 키보드",
+    "imageUrl": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400",
+    "category": ["액세서리", "데스크톱"],
+    "inStock": true
+  },
+  {
+    "id": "34",
+    "name": "Magic Mouse",
+    "price": 129000,
+    "discountedPrice": 119000,
+    "description": "충전식 무선 마우스, Multi-Touch 제스처 지원",
+    "imageUrl": "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=400",
+    "category": ["액세서리", "데스크톱"],
+    "inStock": false
+  },
+  {
+    "id": "35",
+    "name": "iPhone SE (3세대)",
+    "price": 650000,
+    "description": "A15 Bionic 칩, 4.7인치 Retina HD 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
+    "category": ["스마트폰"],
+    "inStock": true
+  },
+  {
+    "id": "36",
+    "name": "MacBook Pro 16",
+    "price": 3490000,
+    "discountedPrice": 3390000,
+    "description": "M3 Max 칩, 16.2인치 Liquid Retina XDR 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
+    "category": ["노트북", "해외배송"],
+    "inStock": true
+  },
+  {
+    "id": "37",
+    "name": "Apple Pencil (2세대)",
+    "price": 195000,
+    "description": "iPad Pro 및 iPad Air와 호환되는 정밀한 드로잉 도구",
+    "imageUrl": "https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?w=400",
+    "category": ["액세서리", "태블릿"],
+    "inStock": true
+  },
+  {
+    "id": "38",
+    "name": "MagSafe 충전기",
+    "price": 55000,
+    "description": "iPhone 12 이상 모델을 위한 간편한 무선 충전",
+    "imageUrl": "https://images.unsplash.com/photo-1618384887928-16ec334a171d?w=400",
+    "category": ["액세서리", "스마트폰"],
+    "inStock": true
+  },
+  {
+    "id": "39",
+    "name": "AirTag",
+    "price": 45000,
+    "description": "나의 찾기 네트워크를 통해 소지품을 쉽게 찾는 방법",
+    "imageUrl": "https://images.unsplash.com/photo-1611403570720-1629a626a152?w=400",
+    "category": ["액세서리"],
+    "inStock": true
+  },
+  {
+    "id": "40",
+    "name": "iPhone 13 mini",
+    "price": 950000,
+    "discountedPrice": 850000,
+    "description": "A15 Bionic 칩, 5.4인치 Super Retina XDR 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
+    "category": ["스마트폰"],
+    "inStock": false
+  },
+  {
+    "id": "41",
+    "name": "Pro Display XDR",
+    "price": 6499000,
+    "description": "32인치 6K Retina 디스플레이, 전문가용 모니터",
+    "imageUrl": "https://images.unsplash.com/photo-1527443154245-98218c847c9b?w=400",
+    "category": ["모니터", "데스크톱"],
+    "inStock": true
+  },
+  {
+    "id": "42",
+    "name": "Apple Watch 가죽 링크",
+    "price": 135000,
+    "description": "유연한 마그네틱 잠금장치를 갖춘 가죽 스트랩",
+    "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
+    "category": ["웨어러블", "액세서리"],
+    "inStock": true
+  },
+  {
+    "id": "43",
+    "name": "iPad Air (5세대)",
+    "price": 929000,
+    "description": "M1 칩, 10.9인치 Liquid Retina 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400",
+    "category": ["태블릿", "해외배송"],
+    "inStock": true
+  },
+  {
+    "id": "44",
+    "name": "Beats Studio Buds+",
+    "price": 229000,
+    "discountedPrice": 209000,
+    "description": "강력하고 균형 잡힌 사운드를 제공하는 노이즈 캔슬링 이어폰",
+    "imageUrl": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
+    "category": ["이어폰"],
+    "inStock": true
+  },
+  {
+    "id": "45",
+    "name": "iPhone 11",
+    "price": 750000,
+    "description": "A13 Bionic 칩, 6.1인치 Liquid Retina HD 디스플레이",
+    "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
+    "category": ["스마트폰"],
+    "inStock": false
+  },
+  {
+    "id": "46",
+    "name": "Magic Trackpad",
+    "price": 189000,
+    "description": "충전식 무선 트랙패드, Force Touch 지원",
+    "imageUrl": "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=400",
+    "category": ["액세서리", "데스크톱"],
+    "inStock": true
+  },
+  {
+    "id": "47",
+    "name": "LG UltraFine 5K Display",
+    "price": 1690000,
+    "description": "Mac 사용자를 위한 27인치 5K 모니터",
+    "imageUrl": "https://images.unsplash.com/photo-1527443154245-98218c847c9b?w=400",
+    "category": ["모니터", "데스크톱"],
+    "inStock": true
+  },
+  {
+    "id": "48",
+    "name": "Apple Pencil (1세대)",
+    "price": 149000,
+    "description": "iPad와 호환되는 정밀한 드로잉 및 필기 도구",
+    "imageUrl": "https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?w=400",
+    "category": ["액세서리", "태블릿"],
+    "inStock": true
+  },
+  {
+    "id": "49",
+    "name": "Smart Keyboard Folio",
+    "price": 269000,
+    "discountedPrice": 249000,
+    "description": "iPad Pro 및 iPad Air용 키보드 케이스",
+    "imageUrl": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400",
+    "category": ["액세서리", "태블릿"],
+    "inStock": true
+  },
+  {
+    "id": "50",
+    "name": "MacBook Air M1",
+    "price": 1290000,
+    "description": "Apple M1 칩, 놀라운 성능과 배터리 수명",
+    "imageUrl": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400",
+    "category": ["노트북"],
+    "inStock": true
+  },
+  {
+    "id": "51",
+    "name": "AirPods (2세대)",
+    "price": 199000,
+    "description": "간편한 설정, 풍부한 고음질 사운드",
+    "imageUrl": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400",
+    "category": ["이어폰"],
+    "inStock": true
+  },
+  {
+    "id": "52",
+    "name": "Apple Watch SE (2세대)",
+    "price": 359000,
+    "description": "S8 SiP, 활동 추적, 긴급 구조 요청 기능",
+    "imageUrl": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=400",
+    "category": ["웨어러블"],
+    "inStock": true
+  },
+  {
+    "id": "53",
+    "name": "HomePod (2세대)",
+    "price": 449000,
+    "description": "몰입감 넘치는 고품질 사운드, 스마트 홈 허브",
+    "imageUrl": "https://images.unsplash.com/photo-1610438235354-a6ae5b081839?w=400",
+    "category": ["스마트 스피커", "홈"],
+    "inStock": false
+  },
+  {
+    "id": "54",
+    "name": "iPhone 가죽 케이스 with MagSafe",
+    "price": 85000,
+    "description": "특수 무두 처리 및 마감된 가죽으로 제작된 케이스",
+    "imageUrl": "https://images.unsplash.com/photo-1618384887928-16ec334a171d?w=400",
+    "category": ["액세서리", "스마트폰"],
+    "inStock": true
+  },
+  {
+    "id": "55",
+    "name": "Belkin 3-in-1 Wireless Charger",
+    "price": 189000,
+    "description": "iPhone, Apple Watch, AirPods를 동시에 충전",
+    "imageUrl": "https://images.unsplash.com/photo-1618384887928-16ec334a171d?w=400",
+    "category": ["액세서리"],
+    "inStock": true
+  },
+  {
+    "id": "56",
+    "name": "Casetify Impact Case",
+    "price": 65000,
+    "description": "강력한 보호 기능과 다양한 디자인의 iPhone 케이스",
+    "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400",
+    "category": ["액세서리", "스마트폰"],
+    "inStock": true
+  },
+  {
+    "id": "57",
+    "name": "Logitech MX Master 3S for Mac",
+    "price": 139000,
+    "description": "Mac 사용자를 위한 인체공학적 고성능 마우스",
+    "imageUrl": "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=400",
+    "category": ["액세서리", "데스크톱"],
+    "inStock": true
+  },
+  {
+    "id": "58",
+    "name": "Anker 737 Power Bank",
+    "price": 199000,
+    "discountedPrice": 179000,
+    "description": "MacBook Pro도 충전 가능한 140W 고출력 보조배터리",
+    "imageUrl": "https://images.unsplash.com/photo-1618384887928-16ec334a171d?w=400",
+    "category": ["액세서리"],
+    "inStock": true
+  },
+  {
+    "id": "59",
+    "name": "CalDigit TS4 Thunderbolt 4 Dock",
+    "price": 549000,
+    "description": "18개의 포트를 제공하는 강력한 Thunderbolt 4 도킹 스테이션",
+    "imageUrl": "https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=400",
+    "category": ["액세서리", "노트북"],
+    "inStock": false
+  },
+  {
+    "id": "60",
+    "name": "Apple Polishing Cloth",
+    "price": 28000,
+    "description": "나노 텍스처 글래스를 포함한 모든 Apple 디스플레이를 안전하게 닦을 수 있는 천",
+    "imageUrl": "https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?w=400",
+    "category": ["액세서리"],
+    "inStock": true
   }
 ]
