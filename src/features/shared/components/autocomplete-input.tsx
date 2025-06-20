@@ -37,7 +37,6 @@ export function AutoComplete<T extends string>({
   onSearchValueChange,
   items,
   isLoading,
-  emptyMessage = "상품을 찾을 수 없습니다.",
   placeholder = "검색어를 입력하세요.",
 }: Props<T>) {
   const [open, setOpen] = useState(false);
@@ -136,7 +135,6 @@ export function AutoComplete<T extends string>({
                   ))}
                 </CommandGroup>
               ) : null}
-              {!isLoading ? <CommandEmpty>{emptyMessage}</CommandEmpty> : null}
             </CommandList>
           </PopoverContent>
         </Command>
