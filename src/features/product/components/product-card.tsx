@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import type { Product } from "../types/product";
@@ -33,19 +33,17 @@ export function ProductCard({ product }: ProductCardProps) {
           </Badge>
         </div>
       </div>
-      <CardHeader className="pb-2 gap-0">
+      <CardContent className="space-y-2">
         <div className="flex items-start justify-between gap-2">
           <h3 className="font-semibold text-xl line-clamp-2">{product.name}</h3>
           <Badge variant="outline" className="text-xs shrink-0">
             {product.category}
           </Badge>
         </div>
-      </CardHeader>
-      <CardContent className="pt-0 space-y-2">
         <p className="text-xs text-muted-foreground line-clamp-2">
           {product.description}
         </p>
-        <div className="flex items-end gap-2">
+        <div className="pt-4 flex items-end gap-2">
           {product.discountedPrice && (
             <span className="font-bold text-lg lg:text-xl text-red-500">
               {discountRate}%
